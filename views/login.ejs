@@ -1,0 +1,32 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <div class="login-form">
+        <% if(err) { %>
+        <p style="color: red;"><%= err %></p>
+        <% } %>
+        <h3>Login Page</h3>
+        <form action="/login" method="POST">
+          <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" />
+          </div>
+          <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" />
+          </div>
+          <button>Login</button>
+        </form>
+        <a href="/register">Register</a>
+      </div>
+<!-- /Main Site -->
+
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

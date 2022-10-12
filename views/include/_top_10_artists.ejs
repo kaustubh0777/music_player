@@ -1,0 +1,10 @@
+<% for(var i = 0; i < artists.length; i++) { %>
+    <tr>
+        <td><%= artists[i].name %></td>
+        <td><%= artists[i].DOB %></td>
+        <td><%= artists[i].songs.map(function(el) {
+            return el.name;
+          }); %></td>
+        <td><%= artists[i].rating %></td>
+    </tr>
+    <% } %>

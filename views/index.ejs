@@ -1,0 +1,106 @@
+
+<!-- include header -->
+    <%- include('include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-song" class="border-shadow">
+                    <span class="text-gradient">New Song <i class="fa-solid fa-music"></i></span>
+                </a>
+            </div>
+
+            <div class="box-nav d-flex justify-between" style="float: right; padding: auto;">
+                <form action="/logout" method="POST">
+                    <button class="text-gradient">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                </form>
+            </div>
+
+        </br>
+        </br>
+        <div>
+            <form action="/api/songs/multiple/rating" method="POST" id="add_rating">
+                <div class="header">
+                    <h1>Rate Song</h1>
+                  </div>
+
+                  <select id="songs" name="songs" data-style="btn-default" class="selectpicker" multiple="multiple">
+
+                    <!-- for loop code start -->
+                    <% for(var i=0; i < songs.length; i++) { %>
+                    <option value="<%= songs[i]._id %>"><%= songs[i].name %></option>
+                    <% } %>
+                    </select>
+            </br>
+            </br>
+             <div class="box-nav d-flex justify-between">
+                <input type="number" name="rating" min="1" max="5" placeholder="between 1 and 5" style="width:50%;padding:4px;margin:-5px"/>
+                </div>
+
+        </br>
+        </br>
+                <div class="box-nav d-flex justify-between">
+                    <button type="submit" class="text-gradient">Rate (between 1 and 5)<i class="fa-solid fa-percent"></i></button>
+                </div>
+            </form>
+       </div>
+            <div class="header">
+                <h1>Top 10 Songs</h1>
+              </div>
+            <!-- form handling -->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Artwork</th>
+                            <th>Song</th>
+                            <th>Date of Release</th>
+                            <th>Artists</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_top_10_songs') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+ <!-- Main Site -->
+ <main id="site-main">
+    <div class="container">
+
+
+        <div class="header">
+            <h1>Top 10 Artists</h1>
+          </div>
+        <!-- form handling -->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Artists</th>
+                        <th>Date of Birth</th>
+                        <th>Songs</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_top_10_artists') %>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

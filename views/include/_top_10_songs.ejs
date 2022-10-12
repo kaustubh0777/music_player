@@ -1,0 +1,20 @@
+<% for(var i = 0; i < songs.length; i++) { %>
+    <tr>
+        <td><img style="width:100px;height:100px;;top:0;" src="http://localhost:3000/api/songs/<%=songs[i]._id%>/image"></td>
+        <td><%= songs[i].name %></td>
+        <td><%= songs[i].DOR %></td>
+        <td><%= songs[i].artists.map(function(el) {
+            return el.name;
+          }); %></td>
+        <td>
+            <% for(var j=1;j<=Math.round(songs[i].rating); j++){ %>
+            <span onclick="span_click(this);" id="<%= songs[i]._id + '_' + j %>" class="fa fa-star checked"></span>
+
+            <% } %>
+            
+            <% for(var j=Math.round(songs[i].rating)+1;j<=5; j++){ %>
+                <span onclick="span_click(this);" id="<%= songs[i]._id  + '_' + j %>" class="fa fa-star"></span>
+            <% } %>
+        </td>
+    </tr>
+    <% } %>
