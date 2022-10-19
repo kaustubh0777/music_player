@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
 
 :root{
-    --dark: #2b2d42;
+    --dark: #1827cb;
     --light: #adb5bd;
-    --border: #dee2e6;
+    --border: #040506;
     --border-btn: #edf2f4;
 }
 
@@ -105,6 +105,7 @@ table{
 
 .table tr:hover{
     background-color:#06d6a0 ;
+     cursor: grab;
 }
 
 .table tr:hover td > a{
